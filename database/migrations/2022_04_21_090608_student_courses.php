@@ -17,8 +17,8 @@ class StudentCourses extends Migration
         Schema::create('student_courses', function (Blueprint $table) {
             $table->id();
             $table->String('sid');
-            $table->unsignedBigInteger('cid');
-            $table->foreign('cid')->references('id')->on('courses');
+            $table->String('cid');
+            $table->foreign('cid')->references('code')->on('courses');
             $table->integer('certificate_no');
             $table->integer('batch');
             $table->date('start_date');
