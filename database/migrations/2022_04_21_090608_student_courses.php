@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class StudentCourses extends Migration
@@ -24,6 +25,8 @@ class StudentCourses extends Migration
             $table->date('end_date');
             $table->timestamps();
         });
+
+        DB::unprepared('ALTER TABLE `student_courses` DROP PRIMARY KEY, ADD PRIMARY KEY (  `sid` , `cid` )');
     }
 
     /**
