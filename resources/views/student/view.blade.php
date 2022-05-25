@@ -75,7 +75,7 @@
                                                             <a href="students{{ $student->id }}"
                                                                 class=" btn btn-sm bg-dark btn-sm"><img
                                                                     src="photos/edit.png" alt="" style="width: 15px;"></a>
-                                                            <a href="studentdelete{{ $student->id }}"
+                                                            <a href="studentdelete{{ $student->sid }}"
                                                                 class="btn btn-sm bg-danger text-light btn-sm">
                                                                 <img src="photos/delete.png" alt="" style="width: 15px;">
                                                             </a>

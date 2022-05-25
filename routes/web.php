@@ -44,4 +44,4 @@ Route::post('adduser','usercontroller@store');
 Route::get('newstudent', 'studentcontroller@student');
 Route::get('students{id}','studentcontroller@edit');
 Route::POST('studentupdate/{id}','studentcontroller@update');
-
+Route::get('studentdelete{id}', 'studentcontroller@destroy');

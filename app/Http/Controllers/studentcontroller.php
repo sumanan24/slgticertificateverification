@@ -39,10 +39,10 @@ class studentcontroller extends Controller
     }
     public function index()
     {
-        $students = student_course::join('students','students.reg_number','=','student_courses.sid')
-        ->join('courses','courses.code','=','student_courses.cid')
-        ->select('students.fullname as sname','student_courses.sid','courses.name as cname','student_courses.id','student_courses.start_date','student_courses.end_date')
-        ->get();
+        $students = student_course::join('students', 'students.reg_number', '=', 'student_courses.sid')
+            ->join('courses', 'courses.code', '=', 'student_courses.cid')
+            ->select('students.fullname as sname', 'student_courses.sid', 'courses.name as cname', 'student_courses.id', 'student_courses.start_date', 'student_courses.end_date')
+            ->get();
         return view('student.view', compact('students'));
     }
 
@@ -53,7 +53,6 @@ class studentcontroller extends Controller
      */
     public function create(Request $request)
     {
-        
     }
 
     /**
@@ -103,31 +102,26 @@ class studentcontroller extends Controller
     }
 
 
-   public function excelstore(Request $request)
-   {
+    public function excelstore(Request $request)
+    {
 
-    try {
-        Excel::import(new studentImport,$request->file);
-        Excel::import(new studentcourse,$request->file);
-        return redirect()->back()->with('message', "Insert success");
+        try {
+            Excel::import(new studentImport, $request->file);
+            Excel::import(new studentcourse, $request->file);
+            return redirect()->back()->with('message', "Insert success");
+        } catch (\Illuminate\Database\QueryException $e) {
+            $errorCode = $e->errorInfo[1];
+            if ($errorCode == '1062') {
+                try {
+                    Excel::import(new studentcourse, $request->file);
+                    return redirect()->back()->with('message', "Insert success");
+                } catch (\Illuminate\Database\QueryException $e) {
+                    return redirect()->back()->with('message1', "Check your CSV File some duplicate values have");
+                }
+            }
+        }
     }
-     catch (\Illuminate\Database\QueryException $e) {
-                    $errorCode = $e->errorInfo[1];
-                    if ($errorCode == '1062') {
-                        try{
-                            Excel::import(new studentcourse,$request->file);
-                            return redirect()->back()->with('message', "Insert success");
-                        }
-                        catch(\Illuminate\Database\QueryException $e) {
-                            return redirect()->back()->with('message1', "Check your CSV File some duplicate values have");
-                           
-                        }
-                    }
-                }  
-                
-      
-   }
-   
+
     /**
      * Display the specified resource.
      *
@@ -147,15 +141,15 @@ class studentcontroller extends Controller
      */
     public function edit($id)
     {
-        $students = student_course::join('students','students.reg_number','=','student_courses.sid')
-        ->join('courses','courses.code','=','student_courses.cid')
-        ->join('departments','departments.id','=','courses.department')
-        ->select('students.fullname as sname','departments.name as dname','student_courses.sid as stuid','courses.name as cname','student_courses.id as sid','student_courses.start_date','student_courses.end_date','student_courses.certificate_no','student_courses.batch','students.nic','departments.id as did','courses.code as code')
-        ->where('student_courses.id',$id)
-        ->get();
-    
+        $students = student_course::join('students', 'students.reg_number', '=', 'student_courses.sid')
+            ->join('courses', 'courses.code', '=', 'student_courses.cid')
+            ->join('departments', 'departments.id', '=', 'courses.department')
+            ->select('students.fullname as sname', 'departments.name as dname', 'student_courses.sid as stuid', 'courses.name as cname', 'student_courses.id as sid', 'student_courses.start_date', 'student_courses.end_date', 'student_courses.certificate_no', 'student_courses.batch', 'students.nic', 'departments.id as did', 'courses.code as code')
+            ->where('student_courses.id', $id)
+            ->get();
+
         $departments = department::all();
-        return view('student.edit', ['students'=>$students,'departments'=>$departments]);
+        return view('student.edit', ['students' => $students, 'departments' => $departments]);
     }
 
     /**
@@ -168,35 +162,29 @@ class studentcontroller extends Controller
     public function update(Request $request, $id)
     {
 
-        try
-        {
-            if($request->course=="")
-            {
+        try {
+            if ($request->course == "") {
                 return redirect()->back()->with('course', "Course filed required");
-            }
-            else
-            {
-                $student_course=student_course::find($id);
-                $student = student::where("reg_number",'=',$request->input('reg_number'))->first();
-                $student->fullname=$request->name;
-                $student->nic=$request->nic;
-                $student_course->cid=$request->input('course');
-                $student_course->certificate_no=$request->input('certificate');
-                $student_course->batch=$request->input('batch');
-                $student_course->start_date=$request->input('sdate');
-                $student_course->end_date=$request->input('edate');
+            } else {
+                $student_course = student_course::find($id);
+                $student = student::where("reg_number", '=', $request->input('reg_number'))->first();
+                $student->fullname = $request->name;
+                $student->nic = $request->nic;
+                $student_course->cid = $request->input('course');
+                $student_course->certificate_no = $request->input('certificate');
+                $student_course->batch = $request->input('batch');
+                $student_course->start_date = $request->input('sdate');
+                $student_course->end_date = $request->input('edate');
                 $student->update();
                 $student_course->update();
                 return redirect()->back()->with('message', "Update success");
-            }  
-        }
-        catch (\Illuminate\Database\QueryException $e) {
+            }
+        } catch (\Illuminate\Database\QueryException $e) {
             $errorCode = $e->errorInfo[1];
             if ($errorCode == '1062') {
                 return redirect()->back()->with('message1', "Duplicate Entry");
             }
         }
-        
     }
 
     /**
@@ -207,6 +195,10 @@ class studentcontroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleteQuery = "DELETE FROM student_courses WHERE sid= '$id'";
+        $deleteQuery1 = "DELETE FROM students WHERE reg_number = '$id'";
+        DB::delete($deleteQuery);
+        DB::delete($deleteQuery1);
+        return redirect()->back()->with('message', "Delete success");
     }
 }

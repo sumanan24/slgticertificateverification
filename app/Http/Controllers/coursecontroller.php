@@ -52,7 +52,7 @@ class coursecontroller extends Controller
     public function store(Request $request)
     {
         $validatedData = request()->validate([
-            'code' => ['required','max:3','min:3','unique:courses'],
+            'code' => ['required','max:5','min:3','unique:courses'],
             'name' => 'required',
             'nvq' => 'required',
             'department' => 'required'

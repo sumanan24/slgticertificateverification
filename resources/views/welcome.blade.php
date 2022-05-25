@@ -81,9 +81,9 @@
 
         .demo-inner-content {
             position: relative;
-            z-index: 2;
+           
             margin: 180px auto;
-            padding: 40px;
+        
             max-width: 600px;
             color: #fff;
             text-align: center;
@@ -93,6 +93,7 @@
 </head>
 
 <body>
+
     <div class="flex-center position-ref full-height">
 
         <div id="demo-1" data-zs-src='["photos/01.png", "photos/02.png", "photos/03.png","photos/04.png"]'>
@@ -101,7 +102,13 @@
                     <div class="row justify-content-center">
                         <div class="col-md-12">
                             <div class="card" style="background-color: rgba(60, 60, 60,0.8); padding: 20px;">
-                                <div class="card-header">{{ __('Certificate Verification') }}</div>
+                                <div class="card-header bg-light rounded">
+                                <div class="row">
+                                    <div class="col-md-8 text-dark p-2" style="font-family: 'arial';"> SLGTI Certificate Verification </div>
+                                    <div class="col-md-4"><img src="photos/logo.png" alt="" style="width: 100%;"></div>
+                                </div>    
+                                
+                               </div>
 
                                 <div class="card-body">
                                     <form method="POST" action="viewresult">
@@ -126,7 +133,7 @@
                                                 <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">
                                                     {{ __('Search') }}
                                                 </button>
-                                                <a href="{{ route('login') }}" style="font-size: 16px;">Admin Login!</a>
+                                                
                                             </div>
                                         </div>
                                     </form>
