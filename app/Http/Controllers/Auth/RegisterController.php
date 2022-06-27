@@ -29,6 +29,10 @@ class RegisterController extends Controller
      *
      * @var string
      */
+    public function __construct()
+    {
+        $this->middleware('role:administrator');
+    }
     public function index()
     {
         return view('auth.register');

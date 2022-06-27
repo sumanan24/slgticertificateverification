@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class usercontroller extends Controller
+class resetcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,9 @@ class usercontroller extends Controller
     }
     public function index()
     {
-        return view('auth.register');
+        $u = Auth::user();
+        $users=User::find($u);
+        return view('auth.reset',compact('users'));
     }
 
     /**
@@ -38,18 +40,9 @@ class usercontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-
-     
     public function store(Request $request)
     {
-        $user = new User();
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->password=Hash::make($request->password);
-        $user->save();
-        $user->attachrole($request->type);
-        return redirect()->back()->with('message', "Insert success");
+        //
     }
 
     /**

@@ -89,6 +89,17 @@
             text-align: center;
             font-size: 1.5em;
         }
+        .card-t{
+            background-color: rgba(60, 60, 60,0.8); 
+            padding: 20px;
+        }
+        @media only screen and (max-width: 600px) {
+            .card-t{
+            background-color: rgba(60, 60, 60,0.8); 
+            margin-top: -100px;
+        }
+            
+        }
     </style>
 </head>
 
@@ -101,7 +112,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-12">
-                            <div class="card" style="background-color: rgba(60, 60, 60,0.8); padding: 20px;">
+                            <div class="card card-t" >
                                 <div class="card-header bg-light rounded">
                                 <div class="row">
                                     <div class="col-md-8 text-dark p-2" style="font-family: 'arial';"> SLGTI Certificate Verification </div>
