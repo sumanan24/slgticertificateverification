@@ -19,7 +19,8 @@ class usercontroller extends Controller
     }
     public function index()
     {
-        return view('auth.register');
+        $users = User::all();
+        return view('auth.view', compact('users'));
     }
 
     /**
@@ -29,7 +30,7 @@ class usercontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.register');
     }
 
     /**

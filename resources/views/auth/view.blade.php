@@ -33,20 +33,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($courses as $course)
+                                @foreach ($users as $user)
 
                                 <tr>
 
-                                    <td>{{ $course->code }} <span class="badge badge-dark">{{ $course->nvq }}</span></td>
-                                    <td>{{ $course->name }} <span class="badge badge-dark"></span></td>
+                                    <td>{{ $user->email }} </td>
+                                    <td>{{ $user->name }} </td>
                                     <td>
                                         <div class="row">
                                             <div class="col"></div>
                                             <div class="col-auto">
 
                                                 <div class="btn-group btn-sm" role="group" aria-label="Basic example">
-                                                    <a href="course_edit{{ $course->id }}" class=" btn btn-sm bg-dark btn-sm"><img src="photos/edit.png" alt="" style="width: 15px;"></a>
-                                                    <a href="course_delete{{ $course->id }}" class="btn btn-sm bg-danger text-light btn-sm">
+                                                    <a href="user_edit{{ $user->id }}" class=" btn btn-sm bg-dark btn-sm"><img src="photos/edit.png" alt="" style="width: 15px;"></a>
+                                                    <a href="user_delete{{ $user->id }}" class="btn btn-sm bg-danger text-light btn-sm">
                                                         <img src="photos/delete.png" alt="" style="width: 15px;"> </a>
                                                 </div>
                                             </div>
@@ -54,7 +54,7 @@
                                     </td>
                                     @endforeach
                             </tbody>
-                            
+
                         </table>
                     </div>
                 </div>

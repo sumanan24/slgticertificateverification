@@ -78,7 +78,7 @@
                                 <a class="nav-link" href="student">{{ __('Students') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="usercreate">{{ __('Users') }}</a>
+                                    <a class="nav-link" href="user">{{ __('Users') }}</a>
                                 </li>
                             @endrole
                             @role('user')
