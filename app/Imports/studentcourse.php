@@ -23,7 +23,6 @@ class studentcourse implements ToModel,WithHeadingRow
                  'certificate_no'=>$row['certificate_no'],
                  'batch'=>$row['batch'],
                  'start_date'=>$row['start_date'],
-                 'end_date'=>$row['end_date'],
         ]);
     }
 

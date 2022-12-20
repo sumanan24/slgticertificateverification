@@ -61,17 +61,14 @@
                                         <th>Course Name</th>
                                         <th>Certificate_no</th>
                                         <th>Batch</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-
+                                        <th>Effective Date</th>
                                     </tr>
                                     @foreach ($results as $result)
                                     <tr>
                                         <td>{{$result->cname}}</td>
                                         <td>{{$result->certificate_no}}</td>
                                         <td>{{$result->batch}}</td>
-                                        <td>{{$result->start_date}}</td>
-                                        <td>{{$result->end_date}}</td>
+                                        <td>{{$result->start_date}}</td> 
                                     </tr>
                                     @endforeach
                                 </table>
@@ -135,7 +132,7 @@
             </div>
         </div>
         <div class="row" style="padding-bottom: 10px;">
-            <div class="col-md-12  bg-transparent text-primary text-center" style="border-top: 1px solid rgba(255, 255, 255,0.5); border-bottom: 1px solid rgba(255, 255, 255,0.5); padding: 10px;">Copyright (c) 2022 - Sri Lanka German Training Institute</div>
+            <div class="col-md-12  bg-transparent text-primary text-center" style="border-top: 1px solid rgba(255, 255, 255,0.5); border-bottom: 1px solid rgba(255, 255, 255,0.5); padding: 10px;">Copyright © 2022 . All rights reserved Information and Communication Technology Department SLGTI. </div>
         </div>
     </div>
 </div>

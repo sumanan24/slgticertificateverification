@@ -10,10 +10,13 @@ use Illuminate\Http\Request;
 use App\Imports\studentcourse;
 use App\Imports\studentImport;
 use Exception;
+use Illuminate\Queue\SerializesModels;
 use Maatwebsite\Excel\Facades\Excel;
 
 class studentcontroller extends Controller
 {
+    use SerializesModels;
+
     /**
      * Display a listing of the resource.
      *
@@ -41,7 +44,7 @@ class studentcontroller extends Controller
     {
         $students = student_course::join('students', 'students.reg_number', '=', 'student_courses.sid')
             ->join('courses', 'courses.code', '=', 'student_courses.cid')
-            ->select('students.fullname as sname', 'student_courses.sid', 'courses.name as cname', 'student_courses.id', 'student_courses.start_date', 'student_courses.end_date')
+            ->select('students.fullname as sname', 'student_courses.sid', 'courses.name as cname', 'student_courses.id', 'student_courses.start_date')
             ->get();
         return view('student.view', compact('students'));
     }
@@ -75,7 +78,7 @@ class studentcontroller extends Controller
             $student_course->certificate_no = $request->certificate;
             $student_course->batch = $request->batch;
             $student_course->start_date = $request->sdate;
-            $student_course->end_date = $request->edate;
+            
             $student_course->save();
         } catch (\Illuminate\Database\QueryException $e) {
             $errorCode = $e->errorInfo[1];
@@ -88,7 +91,7 @@ class studentcontroller extends Controller
                     $student_course->certificate_no = $request->certificate;
                     $student_course->batch = $request->batch;
                     $student_course->start_date = $request->sdate;
-                    $student_course->end_date = $request->edate;
+                  
                     $student_course->save();
                 } catch (\Illuminate\Database\QueryException $e) {
                     $errorCode = $e->errorInfo[1];
@@ -116,7 +119,7 @@ class studentcontroller extends Controller
                     Excel::import(new studentcourse, $request->file);
                     return redirect()->back()->with('message', "Insert success");
                 } catch (\Illuminate\Database\QueryException $e) {
-                    return redirect()->back()->with('message1', "Check your CSV File some duplicate values have");
+                    return redirect()->back()->with('message1', $e);
                 }
             }
         }
@@ -144,7 +147,7 @@ class studentcontroller extends Controller
         $students = student_course::join('students', 'students.reg_number', '=', 'student_courses.sid')
             ->join('courses', 'courses.code', '=', 'student_courses.cid')
             ->join('departments', 'departments.id', '=', 'courses.department')
-            ->select('students.fullname as sname', 'departments.name as dname', 'student_courses.sid as stuid', 'courses.name as cname', 'student_courses.id as sid', 'student_courses.start_date', 'student_courses.end_date', 'student_courses.certificate_no', 'student_courses.batch', 'students.nic', 'departments.id as did', 'courses.code as code')
+            ->select('students.fullname as sname', 'departments.name as dname', 'student_courses.sid as stuid', 'courses.name as cname', 'student_courses.id as sid', 'student_courses.start_date', 'student_courses.certificate_no', 'student_courses.batch', 'students.nic', 'departments.id as did', 'courses.code as code')
             ->where('student_courses.id', $id)
             ->get();
 
@@ -174,7 +177,6 @@ class studentcontroller extends Controller
                 $student_course->certificate_no = $request->input('certificate');
                 $student_course->batch = $request->input('batch');
                 $student_course->start_date = $request->input('sdate');
-                $student_course->end_date = $request->input('edate');
                 $student->update();
                 $student_course->update();
                 return redirect()->back()->with('message', "Update success");

@@ -23,7 +23,7 @@ class resultcontroller extends Controller
         $student = student::where("reg_number", "=", $id)->orwhere("nic", "=", $id)->get();
         $result = student_course::join('courses','courses.code','=','student_courses.cid')
         ->join('students','students.reg_number','=','student_courses.sid')
-        ->select('courses.name as cname','certificate_no','batch','start_date','end_date')
+        ->select('courses.name as cname','certificate_no','batch','start_date')
         ->where("sid", "=", $id)->orwhere("students.nic", "=", $id)->get();
         return view('result', ['students' => $student, 'results' => $result]);
        }

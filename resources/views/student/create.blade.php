@@ -126,15 +126,11 @@
 
                         <div class="row">
 
-                            <label for="sdate" class="col-md-2  text-md-right">{{ __('Start Date') }}</label>
+                            <label for="sdate" class="col-md-2  text-md-right">{{ __('Effective Date') }}</label>
                             <div class="col-md-4">
                                 <input id="sdate" type="date" class="form-control form-control-sm " name="sdate" value="{{ old('sdate') }}" autocomplete="sdate" autofocus required>
                             </div>
 
-                            <label for="edate" class="col-md-2  text-md-right">{{ __('End Date') }}</label>
-                            <div class="col-md-4">
-                                <input id="edate" type="date" class="form-control form-control-sm " name="edate" value="{{ old('edate') }}" autocomplete="edate" autofocus required>
-                            </div>
                         </div>
 
                         <br>
@@ -166,9 +162,7 @@
                                     <div class="modal-body">
                                         
                                             
-                                            
-
-                                        
+                                
                                             <div class="row">
                                                 <label for="course" class="col-md-4  text-md-right">{{ __('Select File') }}</label>
                                                 <div class="col-md-8">
