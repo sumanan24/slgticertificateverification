@@ -45,7 +45,7 @@
                                             <div class="col-auto">
 
                                                 <div class="btn-group btn-sm" role="group" aria-label="Basic example">
-                                                    <a href="user_edit{{ $user->id }}" class=" btn btn-sm bg-dark btn-sm"><img src="photos/edit.png" alt="" style="width: 15px;"></a>
+                                                   
                                                     <a href="user_delete{{ $user->id }}" class="btn btn-sm bg-danger text-light btn-sm">
                                                         <img src="photos/delete.png" alt="" style="width: 15px;"> </a>
                                                 </div>

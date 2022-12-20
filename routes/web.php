@@ -47,3 +47,5 @@ Route::get('students{id}','studentcontroller@edit');
 Route::POST('studentupdate/{id}','studentcontroller@update');
 Route::get('studentdelete{id}', 'studentcontroller@destroy');
 Route::get('reset','resetcontroller@index');
+Route::get('user_delete{id}', 'usercontroller@destroy');
+Route::POST('profileupdate/{id}','usercontroller@update');

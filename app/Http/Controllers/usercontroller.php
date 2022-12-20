@@ -70,9 +70,13 @@ class usercontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($request)
     {
-        //
+        $user=User::find($request->id);
+        $user->email=$request->input('email');
+        $user->password=Hash::make($request->input('password'));
+        $user->update();
+        echo "update success";
     }
 
     /**
@@ -84,7 +88,12 @@ class usercontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=User::find($request->id);
+        $user->name=$request->input('name');
+        $user->email=$request->input('email');
+        $user->password=Hash::make($request->input('password'));
+        $user->save();
+        return redirect()->back()->with('message', "update success");
     }
 
     /**
@@ -95,6 +104,9 @@ class usercontroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+            User::destroy(array('id',$id));
+            return redirect()->back()->with('message', "Delete success");
+        
     }
 }

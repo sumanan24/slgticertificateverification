@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class resetcontroller extends Controller
 {
@@ -76,7 +77,11 @@ class resetcontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=User::find($request->id);
+        $user->email=$request->input('email');
+        $user->password=Hash::make($request->input('password'));
+        $user->save();
+        return redirect()->back()->with('message', "update success");
     }
 
     /**

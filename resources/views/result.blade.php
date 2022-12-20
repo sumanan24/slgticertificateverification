@@ -72,8 +72,6 @@
                                         <td>{{$result->batch}}</td>
                                         <td>{{$result->start_date}}</td>
                                         <td>{{$result->end_date}}</td>
-
-
                                     </tr>
                                     @endforeach
                                 </table>
@@ -81,7 +79,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-footer bg-transparent text-center text-success" style="font-size: 18px"> * This student has successfully completed the course!</div>
+                <div class="card-footer bg-transparent text-center text-success" style="font-size: 18px">
+                    <?php
+                    $cer = $result->certificate_no;
+                    if ($cer == null) {
+                        echo '* This student has following the course!';
+                    } else {
+                        echo '* This student has successfully completed the course!';
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </div>
