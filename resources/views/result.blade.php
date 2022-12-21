@@ -17,7 +17,7 @@
                     @csrf
 
 
-                    <h4 style="color: white;">
+                    <h4 style="color: white; text-align: center;">
                         SLGTI Certificate Verification
                     </h4>
                     <hr>
@@ -97,7 +97,7 @@
         <div class="row">
             <div class="col-md-7">
                 <div style="padding: 15px; text-align: justify;">
-                    <h3 style="text-align: center; ">Sri Lanka – German Training Institute</h3>
+                    <h3 style="text-align: center;">Sri Lanka – German Training Institute</h3>
                     <hr>
                     The Sri Lanka-German Training Institute (SLGTI) is committed to educating, preparing, and inspiring young adults for the 21st century.
 
@@ -132,7 +132,7 @@
             </div>
         </div>
         <div class="row" style="padding-bottom: 10px;">
-            <div class="col-md-12  bg-transparent text-primary text-center" style="border-top: 1px solid rgba(255, 255, 255,0.5); border-bottom: 1px solid rgba(255, 255, 255,0.5); padding: 10px;">Copyright © 2022 . All rights reserved Information and Communication Technology Department SLGTI. </div>
+            <div class="col-md-12  bg-transparent text-primary text-center" style="border-top: 1px solid rgba(255, 255, 255,0.5); border-bottom: 1px solid rgba(255, 255, 255,0.5); padding: 10px;">Copyright © 2022 . All rights reserved Department of Information and Communication Technology. </div>
         </div>
     </div>
 </div>

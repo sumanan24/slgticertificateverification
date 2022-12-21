@@ -113,10 +113,10 @@
                     <div class="row justify-content-center">
                         <div class="col-md-12">
                             <div class="card card-t" >
-                                <div class="card-header bg-light rounded">
+                                <div class="card-header " >
                                 <div class="row">
-                                    <div class="col-md-8 text-dark p-2" style="font-family: 'arial';"> SLGTI Certificate Verification </div>
-                                    <div class="col-md-4"><img src="photos/logo.png" alt="" style="width: 100%;"></div>
+                                    <div class="col-md-12 text-light p-2" style="font-family: 'arial'; text-align: center;"> SLGTI Certificate Verification </div>
+                                    
                                 </div>    
                                 
                                </div>
@@ -127,7 +127,7 @@
 
                                         <div class="form-group row">
                                             <label for="email" class="col-md-12 col-form-label text-md-center" style="font-size: 16px; ">{{ __('Welcome to the certificate verification publishing eService offered by 
-                                               Srilanka German Traning Insitute') }}</label>
+                                               Sri Lanka - German Traning Insitute') }}</label>
                                             <br><br>
 
 
