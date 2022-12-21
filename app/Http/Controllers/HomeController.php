@@ -25,6 +25,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    
+    
+    public function welcome()
+    {
+       return view('welcome'); 
+    }
     public function index()
     {
         $student= DB::table('students')->select(DB::raw('count(*) as count'))->get();
