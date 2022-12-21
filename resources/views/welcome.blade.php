@@ -29,6 +29,25 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+        @media only screen and (max-width: 600px) {
+            body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            background-image: url("photos/03mobi.png");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .card-t {
+            background-color: rgba(60, 60, 60, 0.8);
+            padding: 50px;
+            top: 50px;
+        }
+}
 
         .full-height {
             height: 100vh;
@@ -96,6 +115,7 @@
         .card-t {
             background-color: rgba(60, 60, 60, 0.8);
             padding: 20px;
+            margin-top: 10px;
         }
 
         @media only screen and (max-width: 600px) {
