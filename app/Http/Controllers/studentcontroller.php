@@ -16,7 +16,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class studentcontroller extends Controller
 {
     use SerializesModels;
-
+    private $request;
     /**
      * Display a listing of the resource.
      *
