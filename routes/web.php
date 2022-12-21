@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@welcome');
 Route::get('department', 'departmentcontroller@index');
 Route::POST('departmentcreate', 'departmentcontroller@store');
 Route::get('createdep', 'departmentcontroller@department');
