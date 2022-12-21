@@ -23,8 +23,11 @@
             color: #636b6f;
             font-family: 'Nunito', sans-serif;
             font-weight: 200;
-            height: 100vh;
-            margin: 0;
+            background-image: url("photos/03.png");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .full-height {
@@ -81,24 +84,26 @@
 
         .demo-inner-content {
             position: relative;
-           
+
             margin: 180px auto;
-        
+
             max-width: 600px;
             color: #fff;
             text-align: center;
             font-size: 1.5em;
         }
-        .card-t{
-            background-color: rgba(60, 60, 60,0.8); 
+
+        .card-t {
+            background-color: rgba(60, 60, 60, 0.8);
             padding: 20px;
         }
+
         @media only screen and (max-width: 600px) {
-            .card-t{
-            background-color: rgba(60, 60, 60,0.8); 
-            margin-top: -100px;
-        }
-            
+            .card-t {
+                background-color: rgba(60, 60, 60, 0.8);
+                margin-top: -100px;
+            }
+
         }
     </style>
 </head>
@@ -107,54 +112,54 @@
 
     <div class="flex-center position-ref full-height">
 
-        <div id="demo-1" data-zs-src='["photos/01.png", "photos/02.png", "photos/03.png","photos/04.png"]'>
-            <div class="demo-inner-content">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-12">
-                            <div class="card card-t" >
-                                <div class="card-header " >
+
+        <div class="demo-inner-content">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="card card-t">
+                            <div class="card-header ">
                                 <div class="row">
                                     <div class="col-md-12 text-light p-2" style="font-family: 'arial'; text-align: center;"> SLGTI Certificate Verification </div>
-                                    
-                                </div>    
-                                
-                               </div>
 
-                                <div class="card-body">
-                                    <form method="POST" action="viewresult">
-                                        @csrf
-
-                                        <div class="form-group row">
-                                            <label for="email" class="col-md-12 col-form-label text-md-center" style="font-size: 16px; ">{{ __('Welcome to the certificate verification publishing eService offered by 
-                                               Sri Lanka - German Traning Insitute') }}</label>
-                                            <br><br>
-
-
-                                            <div class="col-md-12">
-                                                @if (session()->has('message'))
-                                                <div class="text-danger" style="font-size: 16px; font-weight: bold;"> {{ session('message') }}</div>
-                                                @endif
-                                                <input id="sid" type="text" placeholder="Nic number / Registration Number" class="form-control @error('email') is-invalid @enderror form-control-sm" name="sid" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row mb-0">
-                                            <div class="col-md-12 ">
-                                                <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">
-                                                    {{ __('Search') }}
-                                                </button>
-                                                
-                                            </div>
-                                        </div>
-                                    </form>
                                 </div>
+
+                            </div>
+
+                            <div class="card-body">
+                                <form method="POST" action="viewresult">
+                                    @csrf
+
+                                    <div class="form-group row">
+                                        <label for="email" class="col-md-12 col-form-label text-md-center" style="font-size: 16px; ">{{ __('Welcome to the certificate verification publishing eService offered by 
+                                               Sri Lanka - German Traning Insitute') }}</label>
+                                        <br><br>
+
+
+                                        <div class="col-md-12">
+                                            @if (session()->has('message'))
+                                            <div class="text-danger" style="font-size: 16px; font-weight: bold;"> {{ session('message') }}</div>
+                                            @endif
+                                            <input id="sid" type="text" placeholder="Nic number / Registration Number" class="form-control @error('email') is-invalid @enderror form-control-sm" name="sid" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-12 ">
+                                            <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">
+                                                {{ __('Search') }}
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
 
 
 
