@@ -113,14 +113,14 @@
         }
 
         .card-t {
-            background-color: rgba(60, 60, 60, 0.8);
+            background-color: rgba(60, 60, 60,0.9);
             padding: 20px;
             margin-top: 10px;
         }
 
         @media only screen and (max-width: 600px) {
             .card-t {
-                background-color: rgba(60, 60, 60, 0.8);
+                background-color: rgba(60, 60, 60,0.9);
                 margin-top: -100px;
             }
 

@@ -74,7 +74,7 @@
                                 <select name="course" id="course" class="form-control form-control-sm " required>
                                     <option value="" selected disabled>Select Course</option>
                                     @foreach ($departments as $department)
-                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                    <option value="{{ $department->code }}">{{ $department->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

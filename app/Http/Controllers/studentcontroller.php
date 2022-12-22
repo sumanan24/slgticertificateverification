@@ -59,6 +59,7 @@ class studentcontroller extends Controller
      */
     public function store(Request $request)
     {
+
         try {
             $student = new student();
             $student->reg_number = $request->reg_number;
@@ -71,30 +72,25 @@ class studentcontroller extends Controller
             $student_course->certificate_no = $request->certificate;
             $student_course->batch = $request->batch;
             $student_course->Date = $request->sdate;
-
             $student_course->save();
+            return redirect()->back()->with('message', "Insert success");
         } catch (\Illuminate\Database\QueryException $e) {
-            $errorCode = $e->errorInfo[1];
-            if ($errorCode == '1062') {
-
-                try {
-                    $student_course = new student_course();
-                    $student_course->sid = $request->reg_number;
-                    $student_course->cid = $request->course;
-                    $student_course->certificate_no = $request->certificate;
-                    $student_course->batch = $request->batch;
-                    $student_course->Date = $request->sdate;
-
-                    $student_course->save();
-                } catch (\Illuminate\Database\QueryException $e) {
-                    $errorCode = $e->errorInfo[1];
-                    if ($errorCode == '1062') {
-                        return redirect()->back()->with('message1', "Duplicate Entry");
-                    }
-                }
+            try {
+                $student_course = new student_course();
+                $student_course->sid = $request->reg_number;
+                $student_course->cid = $request->course;
+                $student_course->certificate_no = $request->certificate;
+                $student_course->batch = $request->batch;
+                $student_course->Date = $request->sdate;
+                $student_course->save();
+                return redirect()->back()->with('message', "Insert success");
+            } catch (\Illuminate\Database\QueryException $e) {
+                return redirect()->back()->with('message1', "Duplicate Entry");
             }
         }
-        return redirect()->back()->with('message', "Insert success");
+
+
+
     }
 
 
@@ -112,22 +108,6 @@ class studentcontroller extends Controller
                 return redirect()->back()->with('message1', "Duplicate Value");
             }
         }
-
-        // try {
-        //     Excel::import(new studentImport, $request->file);
-        //     Excel::import(new studentcourse, $request->file);
-        //     return redirect()->back()->with('message', "Insert success");
-        // } catch (\Illuminate\Database\QueryException $e) {
-        //     $errorCode = $e->errorInfo[1];
-        //     if ($errorCode == '1062') {
-        //         try {
-        //             Excel::import(new studentcourse, $request->file);
-        //             return redirect()->back()->with('message', "Insert success");
-        //         } catch (\Illuminate\Database\QueryException $e) {
-        //             return redirect()->back()->with('message1', $e);
-        //         }
-        //     }
-        // }
     }
 
     /**
