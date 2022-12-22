@@ -24,7 +24,7 @@ class coursecontroller extends Controller
     }
     public function index()
     {
-        $courses = course::Paginate(10);
+        $courses = course::all();
         return view('course.view', compact('courses'));
     }
     public function department()

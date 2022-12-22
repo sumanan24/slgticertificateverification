@@ -70,11 +70,11 @@
                             <div class="row">
 
                                 <label for="department"
-                                    class="col-md-2  text-md-right">{{ __('Department Name') }}</label>
+                                    class="col-md-2  text-md-right">{{ __('Course Name') }}</label>
                                 <div class="col-md-4">
-                                    <select name="department" id="department" class="form-control form-control-sm "
+                                    <select name="course" id="course" class="form-control form-control-sm "
                                         required>
-                                        <option value="{{ $student->did }}" selected>{{ $student->dname }}</option>
+                                        <option value="{{ $student->code }}" selected>{{ $student->cname }}</option>
                                         @foreach ($departments as $department)
                                             @if ($department->id == $student->did)
                                                 {
@@ -89,43 +89,13 @@
                                     </select>
                                 </div>
 
-                                <label for="course" class="col-md-2  text-md-right">{{ __('Course Name') }}</label>
+                                <label for="sdate" class="col-md-2  text-md-right">{{ __('Effective Date') }}</label>
                                 <div class="col-md-4">
-                                    <select name="course" id="course" class="form-control form-control-sm " required>
-                                        <option value="{{ $student->code}}" selected>{{ $student->cname }}</option>
-                                    </select>
-                                    @if (session()->has('course'))
-                                        <p class="text-danger"> {{ session('course') }}</p>
-                                    @endif
+                                    <input id="sdate" type="date" class="form-control form-control-sm " name="sdate"
+                                        value="{{ $student->start_date }}" autocomplete="sdate" autofocus required>
                                 </div>
+                                
                             </div>
-                            <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
-                            <script>
-                                $(document).ready(function() {
-                                    $('#department').on('change', function() {
-                                        let id = $(this).val();
-                                        $('#course').empty();
-                                        $('#course').append(`<option value="0" disabled selected>Processing...</option>`);
-                                        $.ajax({
-                                            type: 'GET',
-                                            url: 'Getcourse/' + id,
-                                            success: function(response) {
-                                                var response = JSON.parse(response);
-                                                console.log(response);
-                                                $('#course').empty();
-                                                $('#course').append(
-                                                    `<option value="0" disabled selected>Select Course</option>`);
-                                                response.forEach(element => {
-                                                    $('#course').append(
-                                                        `<option value="${element['code']}">${element['name']}</option>`
-                                                    );
-                                                });
-                                            }
-                                        });
-                                    });
-                                });
-                            </script>
-
                             <br>
                             <div class="row">
 
@@ -144,16 +114,8 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="row">
-                                <label for="sdate" class="col-md-2  text-md-right">{{ __('Effective Date') }}</label>
-                                <div class="col-md-4">
-                                    <input id="sdate" type="date" class="form-control form-control-sm " name="sdate"
-                                        value="{{ $student->start_date }}" autocomplete="sdate" autofocus required>
-                                </div>
-
-                                
-                            </div>
-                            <br>
+                        
+                           
                             <div class="row">
 
                                 <label for="email" class="col-md-10  text-md-left"></label>

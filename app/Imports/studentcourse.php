@@ -24,7 +24,7 @@ class studentcourse implements ToModel,WithHeadingRow
                  'cid' => $row['code'],
                  'certificate_no'=>$row['certificate_no'],
                  'batch'=>$row['batch'],
-                 'start_date'=>$row['start_date'],
+                 'Date'=>$row['date'],
         ]);
     }
 

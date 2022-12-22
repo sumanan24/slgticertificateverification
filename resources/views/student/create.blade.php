@@ -12,9 +12,9 @@
 
 
                 <div class="card-body">
-                    @if (session('status'))
+                    @if (session('success'))
                     <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+                        {{ session('success') }}
                     </div>
                     @endif
                     <form action="studentcreate" method="POST">
@@ -42,7 +42,7 @@
                         @endif
 
 
-                        
+
                         @csrf
                         <div class="row">
 
@@ -67,46 +67,24 @@
                         <hr>
                         <div class="row">
 
-                            <label for="department" class="col-md-2  text-md-right">{{ __('Department Name') }}</label>
+
+
+                            <label for="course" class="col-md-2  text-md-right">{{ __('Course Name') }}</label>
                             <div class="col-md-4">
-                                <select name="department" id="department" class="form-control form-control-sm " required>
-                                    <option value="" selected disabled>Select Department</option>
+                                <select name="course" id="course" class="form-control form-control-sm " required>
+                                    <option value="" selected disabled>Select Course</option>
                                     @foreach ($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
 
-                            <label for="course" class="col-md-2  text-md-right">{{ __('Course Name') }}</label>
+                            <label for="sdate" class="col-md-2  text-md-right">{{ __('Effective Date') }}</label>
                             <div class="col-md-4">
-                                <select name="course" id="course" class="form-control form-control-sm " required>
-
-                                </select>
+                                <input id="sdate" type="date" class="form-control form-control-sm " name="sdate" value="{{ old('sdate') }}" autocomplete="sdate" autofocus required>
                             </div>
                         </div>
-                        <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
-                        <script>
-                            $(document).ready(function() {
-                                $('#department').on('change', function() {
-                                    let id = $(this).val();
-                                    $('#course').empty();
-                                    $('#course').append(`<option value="0" disabled selected>Processing...</option>`);
-                                    $.ajax({
-                                        type: 'GET',
-                                        url: 'Getcourse/' + id,
-                                        success: function(response) {
-                                            var response = JSON.parse(response);
-                                            console.log(response);
-                                            $('#course').empty();
-                                            $('#course').append(`<option value="0" disabled selected>Select Course</option>`);
-                                            response.forEach(element => {
-                                                $('#course').append(`<option value="${element['code']}">${element['name']}</option>`);
-                                            });
-                                        }
-                                    });
-                                });
-                            });
-                        </script>
+
 
                         <br>
                         <div class="row">
@@ -124,14 +102,7 @@
 
                         <br>
 
-                        <div class="row">
 
-                            <label for="sdate" class="col-md-2  text-md-right">{{ __('Effective Date') }}</label>
-                            <div class="col-md-4">
-                                <input id="sdate" type="date" class="form-control form-control-sm " name="sdate" value="{{ old('sdate') }}" autocomplete="sdate" autofocus required>
-                            </div>
-
-                        </div>
 
                         <br>
                         <div class="row">
@@ -148,7 +119,7 @@
 
 
                     <form action="excelcreate" method="post" enctype="multipart/form-data">
-                    @csrf
+                        {{ csrf_field() }}
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -160,21 +131,21 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        
-                                            
-                                
-                                            <div class="row">
-                                                <label for="course" class="col-md-4  text-md-right">{{ __('Select File') }}</label>
-                                                <div class="col-md-8">
-                                                    <input type="file" name="file" id="file" class="form-control form-control-sm " required>
-                                                </div>
+
+
+
+                                        <div class="row">
+                                            <label for="course" class="col-md-4  text-md-right">{{ __('Select File') }}</label>
+                                            <div class="col-md-8">
+                                                <input type="file" name="file" id="file" class="form-control form-control-sm " required>
                                             </div>
-                                        
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-sm btn-dark">Save</button>
-                                            </div>
-                                        
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-sm btn-dark">Save</button>
+                                        </div>
+
                                     </div>
 
                                 </div>

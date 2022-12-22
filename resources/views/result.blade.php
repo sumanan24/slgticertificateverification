@@ -68,7 +68,7 @@
                                         <td>{{$result->cname}}</td>
                                         <td>{{$result->certificate_no}}</td>
                                         <td>{{$result->batch}}</td>
-                                        <td>{{$result->start_date}}</td> 
+                                        <td>{{$result->Date}}</td> 
                                     </tr>
                                     @endforeach
                                 </table>
