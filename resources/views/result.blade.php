@@ -59,16 +59,30 @@
 
                                     <tr>
                                         <th>Course Name</th>
-                                        <th>Certificate_no</th>
-                                        <th>Batch</th>
-                                        <th>Effective Date</th>
+                                        <th style="text-align: center;">Certificate_no</th>
+                                        <th style="text-align: center;">Batch</th>
+                                        <th style="text-align: center;">Effective Date</th>
                                     </tr>
                                     @foreach ($results as $result)
                                     <tr>
                                         <td>{{$result->cname}}</td>
-                                        <td>{{$result->certificate_no}}</td>
-                                        <td>{{$result->batch}}</td>
-                                        <td>{{$result->Date}}</td> 
+                                        <td style="text-align: center;">
+                                        <?php 
+                                        if($result->certificate_no<10)
+                                        {
+                                            echo"00".$result->certificate_no;
+                                        }
+                                        else if($result->certificate_no<100)
+                                        {
+                                            echo"0".$result->certificate_no;
+                                        }
+                                        else{
+                                            echo $result->certificate_no;
+                                        }
+                                        ?>
+                                        </td>
+                                        <td style="text-align: center;">{{$result->batch}}</td>
+                                        <td style="text-align: center;">{{$result->Date}}</td> 
                                     </tr>
                                     @endforeach
                                 </table>
