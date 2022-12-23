@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\course;
-use Illuminate\Support\Facades\DB;
-use App\department;
 use App\student;
 use App\student_course;
 use Illuminate\Http\Request;
 use App\Imports\studentcourse;
 use App\Imports\studentImport;
-use Exception;
 use Illuminate\Queue\SerializesModels;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -176,12 +173,5 @@ class studentcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $deleteQuery = "DELETE FROM student_courses WHERE sid= '$id'";
-        $deleteQuery1 = "DELETE FROM students WHERE reg_number = '$id'";
-        DB::delete($deleteQuery);
-        DB::delete($deleteQuery1);
-        return redirect()->back()->with('message', "Delete success");
-    }
+    
 }

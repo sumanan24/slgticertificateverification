@@ -24,30 +24,32 @@
             font-family: 'Nunito', sans-serif;
             font-weight: 200;
             background-image: url("photos/03.png");
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        @media only screen and (max-width: 600px) {
-            body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            background-image: url("photos/03mobi.png");
-            height: 100%;
+            width: 100%;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
         }
 
-        .card-t {
-            background-color: rgba(60, 60, 60, 0.8);
-            padding: 50px;
-            top: 50px;
+        @media only screen and (max-width: 600px) {
+
+            html,
+            body {
+                background-image: url("photos/03mobi.png");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+
+
+            .card-t {
+                background-color: rgba(60, 60, 60, 0.8);
+                padding: 50px;
+                top: 50px;
+            }
+
+
         }
-}
 
         .full-height {
             height: 100vh;
@@ -113,14 +115,14 @@
         }
 
         .card-t {
-            background-color: rgba(60, 60, 60,0.9);
+            background-color: rgba(60, 60, 60, 0.9);
             padding: 20px;
             margin-top: 10px;
         }
 
         @media only screen and (max-width: 600px) {
             .card-t {
-                background-color: rgba(60, 60, 60,0.9);
+                background-color: rgba(60, 60, 60, 0.9);
                 margin-top: -100px;
             }
 
