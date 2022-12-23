@@ -98,6 +98,7 @@ class studentcontroller extends Controller
             Excel::import(new studentcourse, $request->file('file'));
             return redirect()->back()->with('message', "Insert success");
         } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->with('message', $e);
             try {
                 Excel::import(new studentcourse, $request->file('file'));
                 return redirect()->back()->with('message', "Insert success");
