@@ -35,7 +35,7 @@
                             <div class="col-12">
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <strong> {{ session('message1') }}</strong>
-                                    <meta http-equiv='refresh' content='2'>
+                                    <!-- <meta http-equiv='refresh' content='2'> -->
                                 </div>
                             </div>
                         </div>
