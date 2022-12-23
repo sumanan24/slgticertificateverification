@@ -34,7 +34,7 @@ class studentcontroller extends Controller
     {
         $students = student_course::join('students', 'students.reg_number', '=', 'student_courses.sid')
             ->join('courses', 'courses.code', '=', 'student_courses.cid')
-            ->select('students.fullname as sname', 'student_courses.sid', 'courses.name as cname', 'student_courses.id', 'student_courses.Date')
+            ->select('students.fullname as sname', 'student_courses.sid', 'courses.name as cname', 'student_courses.id', 'student_courses.Date','student_courses.certificate_no as ceno')
             ->get();
         return view('student.view', compact('students'));
     }

@@ -53,7 +53,7 @@
                                     <th>Registration No</th>
                                     <th>FullName</th>
                                     <th>CourseName</th>
-
+                                    <th>Cerificate No</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -64,7 +64,7 @@
                                     <td>{{ $student->sid }}</td>
                                     <td>{{ $student->sname }}</td>
                                     <td>{{ $student->cname }}</td>
-
+                                    <td>{{ $student->ceno }}</td>
                                     <td>
                                         <div class="row">
                                             <div class="col"></div>
