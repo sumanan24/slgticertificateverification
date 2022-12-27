@@ -27,7 +27,7 @@
         }
 
         @media only screen and (max-width: 600px) {
-            img{
+            img.abc{
             width: 100%;
             height: 50px;
             

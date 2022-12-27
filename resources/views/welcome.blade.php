@@ -142,7 +142,7 @@
                         <div class="card card-t">
                             <div class="card-header ">
                                 <div class="row">
-                                    <div class="col-md-12 text-light p-2" style="font-family: 'arial'; text-align: center;"> SLGTI Certificate Verification </div>
+                                    <div class="col-md-12 text-light p-2" style="font-family: 'arial'; text-align: center;"> SLGTI Online Certificate Verification </div>
 
                                 </div>
 
@@ -153,11 +153,8 @@
                                     @csrf
 
                                     <div class="form-group row">
-                                        <label for="email" class="col-md-12 col-form-label text-md-center" style="font-size: 16px; ">{{ __('Welcome to the certificate verification publishing eService offered by 
-                                               Sri Lanka - German Traning Insitute') }}</label>
-                                        <br><br>
-
-
+                                        <label for="email" class="col-md-12 col-form-label text-md-center" style="font-size: 16px; margin-bottom: 10px;">{{ __('Welcome to the SLGTI Online Certificate Verification.') }}</label>
+                                        <br>
                                         <div class="col-md-12">
                                             @if (session()->has('message'))
                                             <div class="text-danger" style="font-size: 16px; font-weight: bold;"> {{ session('message') }}</div>
@@ -171,8 +168,10 @@
                                             <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">
                                                 {{ __('Search') }}
                                             </button>
+                                            
 
                                         </div>
+                                        <label for="email" class="col-md-12 col-form-label text-md-center" style="font-size: 14px; color: #999; "> E-Service offered by  <br> Sri Lanka - German Traning Insitute </label>
                                     </div>
                                 </form>
                             </div>

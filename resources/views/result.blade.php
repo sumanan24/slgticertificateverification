@@ -67,22 +67,18 @@
                                     <tr>
                                         <td>{{$result->cname}}</td>
                                         <td style="text-align: center;">
-                                        <?php 
-                                        if($result->certificate_no<10)
-                                        {
-                                            echo"00".$result->certificate_no;
-                                        }
-                                        else if($result->certificate_no<100)
-                                        {
-                                            echo"0".$result->certificate_no;
-                                        }
-                                        else{
-                                            echo $result->certificate_no;
-                                        }
-                                        ?>
+                                            <?php
+                                            if ($result->certificate_no < 10) {
+                                                echo "00" . $result->certificate_no;
+                                            } else if ($result->certificate_no < 100) {
+                                                echo "0" . $result->certificate_no;
+                                            } else {
+                                                echo $result->certificate_no;
+                                            }
+                                            ?>
                                         </td>
                                         <td style="text-align: center;">{{$result->batch}}</td>
-                                        <td style="text-align: center;">{{$result->Date}}</td> 
+                                        <td style="text-align: center;">{{$result->Date}}</td>
                                     </tr>
                                     @endforeach
                                 </table>
@@ -91,8 +87,31 @@
                     </div>
                 </div>
                 <div class="card-footer bg-transparent text-center text-success" style="font-size: 18px">
-                * This student has successfully completed the course!
+                    * This student has successfully completed the course!
                 </div>
+                <div class="card-footer bg-transparent " style="font-size: 18px">
+                <p style="color: white;"> Topic Covered</p>
+                <p style="color: white;"> Semester I</p>
+                <ul style="color: white;">
+                    <li>Database I</li>
+                    <li>Graphic Design</li>
+                    <li>System Analysis & Design</li>
+                    <li>Software Programming</li>
+                    <li>Workplace Communication Management</li>
+                    <li>Workplace Information Management</li>
+                   
+                </ul>
+                <p style="color: white;"> Semester II</p>
+                <ul style="color: white;">
+                    <li>Database II</li>
+                    <li>Local Area Network</li>
+                    <li>Software Testing</li>
+                    <li>Web Development</li>
+                    <li>Planning and Scheduling Work at Workplace</li>
+                </ul>
+
+                </div>
+               
             </div>
         </div>
     </div>
@@ -102,7 +121,7 @@
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <div style="padding: 15px; text-align: justify;">
                     <h3 style="text-align: center;">Sri Lanka – German Training Institute</h3>
                     <hr>
@@ -111,7 +130,7 @@
                     SLGTI is known for providing practice-oriented vocational training programmes at NVQ Level 4, 5 and 6, which contribute to a unique learning experience. Promoting a demand-oriented, international education for technical professions in the private sector, SLGTI is supporting the reconciliation process in Sri Lanka.
                 </div>
             </div>
-            <div class="col-md-5" style="text-align: left; padding: 15px;">
+            <div class="col-md-4" style="text-align: left; padding: 15px;">
                 <h3 style="text-align: center; "> Get in touch</h3>
                 <hr>
                 <div class="row">
@@ -137,8 +156,14 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-2" style="text-align: left; text-align: center;">
+                <img src="photos/mini.png" alt="" style="margin-top: 40px;">
+                <p style="color: #999; font-size: 10px;">State Ministry of Skills <br> Development
+                    Vocational Education, <br> Research & Innovation</p>
+            </div>
         </div>
-        <div class="row" style="padding-bottom: 10px;">
+        <div class="row" style="padding-bottom: 12px;">
             <div class="col-md-12  bg-transparent text-primary text-center" style="border-top: 1px solid rgba(255, 255, 255,0.5); border-bottom: 1px solid rgba(255, 255, 255,0.5); padding: 10px;">Copyright © 2022 . All rights reserved Department of Information and Communication Technology. </div>
         </div>
     </div>
