@@ -23,7 +23,7 @@
             color: #636b6f;
             font-family: 'Nunito', sans-serif;
             font-weight: 200;
-            background-image: url("photos/03.png");
+            background-image: url("photos/033.png");
             width: 100%;
             background-position: center;
             background-repeat: no-repeat;
