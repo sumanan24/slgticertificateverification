@@ -91,14 +91,7 @@
                     </div>
                 </div>
                 <div class="card-footer bg-transparent text-center text-success" style="font-size: 18px">
-                    <?php
-                    $cer = $result->certificate_no;
-                    if ($cer == null) {
-                        echo '* This student has following the course!';
-                    } else {
-                        echo '* This student has successfully completed the course!';
-                    }
-                    ?>
+                * This student has successfully completed the course!
                 </div>
             </div>
         </div>
