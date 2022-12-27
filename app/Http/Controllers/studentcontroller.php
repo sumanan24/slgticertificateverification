@@ -34,7 +34,7 @@ class studentcontroller extends Controller
     {
         $students = student_course::join('students', 'students.reg_number', '=', 'student_courses.sid')
             ->join('courses', 'courses.code', '=', 'student_courses.cid')
-            ->select('students.fullname as sname', 'student_courses.sid', 'courses.name as cname', 'student_courses.id', 'student_courses.Date', 'student_courses.certificate_no as ceno')
+            ->select('students.fullname as sname', 'student_courses.sid', 'courses.name as cname', 'student_courses.id', 'student_courses.Date','student_courses.certificate_no as ceno')
             ->get();
         return view('student.view', compact('students'));
     }
@@ -85,26 +85,27 @@ class studentcontroller extends Controller
                 return redirect()->back()->with('message1', "Duplicate Entry");
             }
         }
+
+
+
     }
 
 
     public function excelstore(Request $request)
     {
-
-        Excel::import(new studentImport, $request->file('file'));
-        Excel::import(new studentcourse, $request->file('file'));
-        return redirect()->back()->with('message', "Insert success");
-        // try {
-
-        // } catch (\Illuminate\Database\QueryException $e) {
-        //     return redirect()->back()->with('message', $e);
-        //     try {
-        //         Excel::import(new studentcourse, $request->file('file'));
-        //         return redirect()->back()->with('message', "Insert success");
-        //     } catch (\Illuminate\Database\QueryException $e) {
-        //         return redirect()->back()->with('message1', $e);
-        //     }
-        // }
+        try {
+            Excel::import(new studentImport, $request->file('file'));
+            Excel::import(new studentcourse, $request->file('file'));
+            return redirect()->back()->with('message', "Insert success");
+        } catch (\Illuminate\Database\QueryException $e) {
+           
+            try {
+                Excel::import(new studentcourse, $request->file('file'));
+                return redirect()->back()->with('message', "Insert success");
+            } catch (\Illuminate\Database\QueryException $e) {
+                return redirect()->back()->with('message1', $e);
+            }
+        }
     }
 
     /**
@@ -173,4 +174,5 @@ class studentcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
 }
