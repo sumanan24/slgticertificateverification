@@ -115,8 +115,13 @@
                         <?php
                         $semi1 = $semi1module->semi;
 
-                        
-                        if ($semi1 == "Semester01") {
+                        if ($semi1 == "NoSemester") {
+
+                        ?>
+                            <li>{{ $semi1module->mname }}</li>
+                            <?php
+                        }
+                        else if ($semi1 == "Semester01") {
 
                             if ($x == 0) {
                             ?>
@@ -142,12 +147,6 @@
                             <li>{{ $semi1module->mname }}</li>
                         <?php
                         }
-                        else {
-
-                            ?>
-                                <li>{{ $semi1module->mname }}</li>
-                                <?php
-                            }
 
 
                         ?>
