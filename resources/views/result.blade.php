@@ -91,43 +91,57 @@
                 </div>
                 <div class="card-footer bg-transparent " style="font-size: 18px">
                     <p style="color: white;"> Topic Covered</p>
-                    <ul style="color: white;">
-                        <?php $x = 0; ?>
-                        @foreach ($nosemimodules as $nosemimodule)
-                        <li>{{$nosemimodule->mname}}</li>
-                        @endforeach
-                    </ul>
+
 
                     <ul style="color: white;">
-                        <?php $x = 0; ?>
+                        <?php
+                        $x = 0;
+                        $y = 0;
+                        $z = 0;
+                        ?>
                         @foreach ($semi1modules as $semi1module)
                         <?php
-                        if ($x == 0) {
-                        ?>
-                            <p style="color: white; border-bottom: 1px solid white; width: 10%; text-align: center;"> Semester I</p>
-                        <?php
-                        }
-                        $x = 1;
+                        $semi1 = $semi1module->semi;
+
+                        if ($semi1 == "NoSemester") {
 
                         ?>
-                        <li>{{$semi1module->mname}}</li>
-                        @endforeach
-                    </ul>
-                    <ul style="color: white;">
-                        <?php $x = 0; ?>
-                        @foreach ($semi2modules as $semi2module)
-                        <?php
-                        if ($x == 0) {
-                        ?>
-                            <p style="color: white; border-bottom: 1px solid white; width: 10%; text-align: center;"> Semester II</p>
+                            <li>{{ $semi1module->mname }}</li>
+                            <?php
+                        }
+                        if ($semi1 == "Semester01") {
+
+                            if ($x == 0) {
+                            ?>
+                                <p style="color: white; width: 10%; border-bottom: 1px solid white; text-align: center;">Semester01 </p>
+
+                            <?php
+                                $x = 1;
+                            }
+                            ?>
+                            <li>{{ $semi1module->mname }}</li>
+                            <?php
+                        }
+
+                        if ($semi1 == "Semester02") {
+                            if ($y == 0) {
+                            ?>
+                                <p style="color: white; margin-top: 10px; width: 10%; border-bottom: 1px solid white; text-align: center;">Semester02 </p>
+                            <?php
+                                $y = 1;
+                            }
+                            ?>
+                          
+                            <li>{{ $semi1module->mname }}</li>
                         <?php
                         }
-                        $x = 1;
+
 
                         ?>
-                        <li>{{$semi2module->mname}}</li>
+
                         @endforeach
                     </ul>
+
 
 
 
