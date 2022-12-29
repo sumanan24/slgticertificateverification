@@ -159,7 +159,7 @@
                                             @if (session()->has('message'))
                                             <div class="text-danger" style="font-size: 16px; font-weight: bold;"> {{ session('message') }}</div>
                                             @endif
-                                            <input id="sid" type="text" placeholder="Nic number / Registration Number" class="form-control @error('email') is-invalid @enderror form-control-sm" name="sid" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            <input id="sid" type="text" placeholder="NIC number / Registration Number" class="form-control @error('email') is-invalid @enderror form-control-sm" name="sid" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                         </div>
                                     </div>
 

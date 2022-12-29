@@ -87,31 +87,52 @@
                     </div>
                 </div>
                 <div class="card-footer bg-transparent text-center text-success" style="font-size: 18px">
-                    * This student has successfully completed the course!
+                    This student has successfully completed the course!
                 </div>
                 <div class="card-footer bg-transparent " style="font-size: 18px">
-                <p style="color: white;"> Topic Covered</p>
-                <p style="color: white;"> Semester I</p>
-                <ul style="color: white;">
-                    <li>Database I</li>
-                    <li>Graphic Design</li>
-                    <li>System Analysis & Design</li>
-                    <li>Software Programming</li>
-                    <li>Workplace Communication Management</li>
-                    <li>Workplace Information Management</li>
-                   
-                </ul>
-                <p style="color: white;"> Semester II</p>
-                <ul style="color: white;">
-                    <li>Database II</li>
-                    <li>Local Area Network</li>
-                    <li>Software Testing</li>
-                    <li>Web Development</li>
-                    <li>Planning and Scheduling Work at Workplace</li>
-                </ul>
+                    <p style="color: white;"> Topic Covered</p>
+                    <ul style="color: white;">
+                        <?php $x = 0; ?>
+                        @foreach ($nosemimodules as $nosemimodule)
+                        <li>{{$nosemimodule->mname}}</li>
+                        @endforeach
+                    </ul>
+
+                    <ul style="color: white;">
+                        <?php $x = 0; ?>
+                        @foreach ($semi1modules as $semi1module)
+                        <?php
+                        if ($x == 0) {
+                        ?>
+                            <p style="color: white; border-bottom: 1px solid white; width: 10%; text-align: center;"> Semester I</p>
+                        <?php
+                        }
+                        $x = 1;
+
+                        ?>
+                        <li>{{$semi1module->mname}}</li>
+                        @endforeach
+                    </ul>
+                    <ul style="color: white;">
+                        <?php $x = 0; ?>
+                        @foreach ($semi2modules as $semi2module)
+                        <?php
+                        if ($x == 0) {
+                        ?>
+                            <p style="color: white; border-bottom: 1px solid white; width: 10%; text-align: center;"> Semester II</p>
+                        <?php
+                        }
+                        $x = 1;
+
+                        ?>
+                        <li>{{$semi2module->mname}}</li>
+                        @endforeach
+                    </ul>
+
+
 
                 </div>
-               
+
             </div>
         </div>
     </div>

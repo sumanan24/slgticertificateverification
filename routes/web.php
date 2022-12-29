@@ -50,3 +50,7 @@ Route::get('studentdelete{id}', 'studentdeletecontroller@destroy');
 Route::get('reset','resetcontroller@index');
 Route::get('user_delete{id}', 'usercontroller@destroy');
 Route::POST('profileupdate/{id}','usercontroller@update');
+Route::get('Modules', 'modulecontroller@index');
+Route::get('createmod', 'modulecontroller@student');
+Route::post('modulecreate','modulecontroller@store');
+Route::get('mod_delete{id}', 'modulecontroller@destroy');

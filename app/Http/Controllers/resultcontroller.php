@@ -25,10 +25,27 @@ class resultcontroller extends Controller
         ->join('students','students.reg_number','=','student_courses.sid')
         ->select('courses.name as cname','certificate_no','batch','Date')
         ->where("sid", "=", $id)->orwhere("students.nic", "=", $id)->get();
-        return view('result', ['students' => $student, 'results' => $result]);
+
+        $semi1moudlue = student_course::join('modules','modules.c_code','=','student_courses.cid')
+        ->join('students','students.reg_number','=','student_courses.sid')
+        ->select('modules.name as mname')
+        ->where("sid", "=", $id)->orwhere("students.nic", "=", $id)->where("modules.semi", "=", "Semester01")->get();
+
+        $semi2moudlue = student_course::join('modules','modules.c_code','=','student_courses.cid')
+        ->join('students','students.reg_number','=','student_courses.sid')
+        ->select('modules.name as mname')
+        ->where("sid", "=", $id)->orwhere("students.nic", "=", $id)->where("modules.semi", "=", "Semester02")->get();
+
+
+        $nosemimoudlue = student_course::join('modules','modules.c_code','=','student_courses.cid')
+        ->join('students','students.reg_number','=','student_courses.sid')
+        ->select('modules.name as mname')
+        ->where("sid", "=", $id)->orwhere("students.nic", "=", $id)->where("modules.semi", "=", "Nosemester")->get();
+
+        return view('result', ['students' => $student, 'results' => $result,'semi1modules'=>$semi1moudlue,'semi2modules'=>$semi2moudlue,'nosemimodules'=>$nosemimoudlue]);
        }
        else{
-        return redirect()->back()->with('message', "Please Check your Nic number / Registration Number");
+        return redirect()->back()->with('message', "Please Check your NIC number / Registration Number");
        }
         
 

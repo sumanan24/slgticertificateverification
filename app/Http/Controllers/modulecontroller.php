@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\course;
+use App\module;
 use Illuminate\Http\Request;
 
 class modulecontroller extends Controller
@@ -13,7 +15,14 @@ class modulecontroller extends Controller
      */
     public function index()
     {
-        //
+        $modules = module::all();
+        return view('modules.view', compact('modules'));
+    }
+
+    public function student()
+    {
+        $departments = course::all();
+        return view('modules.create', compact('departments'));
     }
 
     /**
@@ -34,7 +43,13 @@ class modulecontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $module = new module();
+        $module->name = $request->name;
+        $module->c_code = $request->course;
+        $module->semi = $request->semi;
+        $module->save();
+        
+        return redirect()->back()->with('message', "Insert success");
     }
 
     /**
@@ -79,6 +94,7 @@ class modulecontroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        module::destroy(array('id',$id));
+        return redirect()->back()->with('message', "Delete success");
     }
 }
