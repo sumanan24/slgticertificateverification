@@ -36,7 +36,7 @@
                     <div class="row">
 
                         <div class="col-md-3">
-                            <span style="color: rgba(255, 255, 255,0.5);">Student Registration Number -</span>
+                            <span style="color: rgba(255, 255, 255,0.5);">Registration Number &nbsp;</span>
                         </div>
 
                         <div class="col-md-5" style="color: white;">
@@ -47,7 +47,7 @@
                     <div class="row">
 
                         <div class="col-md-3">
-                            <span style="color: rgba(255, 255, 255,0.5);">Student NIC Number -</span>
+                            <span style="color: rgba(255, 255, 255,0.5);">NIC Number &nbsp;</span>
                         </div>
                         <div class="col-md-5" style="color: white;">
                             {{ $student->nic}}
@@ -57,7 +57,7 @@
                     <div class="row">
 
                         <div class="col-md-3">
-                            <span style="color: rgba(255, 255, 255,0.5);">Student Name -</span>
+                            <span style="color: rgba(255, 255, 255,0.5);">Fullname  &nbsp;</span>
                         </div>
                         <div class="col-md-5" style="color: white;">
                             {{ $student->fullname}}
