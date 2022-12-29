@@ -115,7 +115,7 @@
                         <?php
                         $semi1 = $semi1module->semi;
 
-                        if ($semi1 == "NoSemester") {
+                        if ($semi1 == "Nosemester") {
 
                         ?>
                             <li>{{ $semi1module->mname }}</li>
