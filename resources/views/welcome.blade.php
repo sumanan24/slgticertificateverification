@@ -142,7 +142,7 @@
                         <div class="card card-t">
                             <div class="card-header ">
                                 <div class="row">
-                                    <div class="col-md-12 text-light p-2" style="font-family: 'arial'; text-align: center;"> SLGTI Online Certificate Verification </div>
+                                    <div class="col-md-12 text-light p-2" style="font-family: 'arial'; text-align: center; font-size:16px;"> Welcome to SLGTI Online Certificate Verification </div>
 
                                 </div>
 
@@ -153,7 +153,7 @@
                                     @csrf
 
                                     <div class="form-group row">
-                                        <label for="email" class="col-md-12 col-form-label text-md-center" style="font-size: 16px; margin-bottom: 10px;">{{ __('Welcome to the SLGTI Online Certificate Verification.') }}</label>
+                                    
                                         <br>
                                         <div class="col-md-12">
                                             @if (session()->has('message'))
