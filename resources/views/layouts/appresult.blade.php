@@ -61,7 +61,7 @@
 </head>
 
 <body>
-    <a href="http://www.slgti.ac.lk/"> <img src="photos/header.png" alt="" ></a>
+    <a href="http://www.slgti.ac.lk/"> <img src="photos/header1.png" alt="" ></a>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
