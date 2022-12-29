@@ -7,6 +7,18 @@
 @section('content')
 <br>
 <br>
+<style>
+    .abc {
+        width: 10%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .abc {
+            width: 100%;
+        }
+
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -113,7 +125,7 @@
 
                             if ($x == 0) {
                             ?>
-                                <p style="color: white; width: 10%; border-bottom: 1px solid white; text-align: center;">Semester01 </p>
+                                <p style="color: white;  border-bottom: 1px solid white; text-align: center;" class="abc">Semester01 </p>
 
                             <?php
                                 $x = 1;
@@ -126,12 +138,12 @@
                         if ($semi1 == "Semester02") {
                             if ($y == 0) {
                             ?>
-                                <p style="color: white; margin-top: 10px; width: 10%; border-bottom: 1px solid white; text-align: center;">Semester02 </p>
+                                <p style="color: white; margin-top: 10px;  border-bottom: 1px solid white; text-align: center;" class="abc">Semester02 </p>
                             <?php
                                 $y = 1;
                             }
                             ?>
-                          
+
                             <li>{{ $semi1module->mname }}</li>
                         <?php
                         }
