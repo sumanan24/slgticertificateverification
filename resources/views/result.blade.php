@@ -9,7 +9,7 @@
 <br>
 <style>
     .abc {
-        width: 30%;
+        width: 10%;
     }
 
     @media only screen and (max-width: 600px) {
@@ -57,7 +57,7 @@
                     <div class="row">
 
                         <div class="col-md-3">
-                            <span style="color: rgba(255, 255, 255,0.5);">Fullname &nbsp;</span>
+                            <span style="color: rgba(255, 255, 255,0.5);">Fullname  &nbsp;</span>
                         </div>
                         <div class="col-md-5" style="color: white;">
                             {{ $student->fullname}}
@@ -111,65 +111,62 @@
                         $y = 0;
                         $z = 0;
                         ?>
-                        <div class="row">
+                       
 
 
+                       
+                        
+                        @foreach ($semi1modules as $semi1module)
+                        <?php
+                        $semi1 = $semi1module->semi;
 
+                        if ($semi1 == "Nosemester") {
 
-
-                            @foreach ($semi1modules as $semi1module)
+                        ?>
+                            <li>{{ $semi1module->mname }}</li>
                             <?php
-                            $semi1 = $semi1module->semi;
+                        }
+                        else if ($semi1 == "Semester01") {
 
-                            if ($semi1 == "Nosemester") {
-
+                            if ($x == 0) {
                             ?>
-                                <li>{{ $semi1module->mname }}</li>
-                                <?php
-                            } else if ($semi1 == "Semester01") {
+                                <p style="color: white;  border-bottom: 1px solid white; text-align: center;" class="abc">Semester01 </p>
 
-                                if ($x == 0) {
-                                ?>
-                                    <div class="col-sm-6">
-                                        <p style="color: white;  border-bottom: 1px solid white; text-align: center;" class="abc">Semester01 </p>
+                            <?php
+                                $x = 1;
+                            }
+                            ?>
+                            <li>{{ $semi1module->mname }}</li>
+                            <?php
+                        }
 
-                                    <?php
-                                    $x = 1;
-                                }
-                                    ?>
-                                    <li>{{ $semi1module->mname }}</li>
-                                    </div>
-                                    <?php
-                                } else if ($semi1 == "Semester02") {
-                                    if ($y == 0) {
-                                    ?>
-                                        <div class="col-md-6">
-                                            <p style="color: white; margin-top: 10px;  border-bottom: 1px solid white; text-align: center;" class="abc">Semester02 </p>
-                                        <?php
-                                        $y = 1;
-                                    }
-                                        ?>
+                        else if ($semi1 == "Semester02") {
+                            if ($y == 0) {
+                            ?>
+                                <p style="color: white; margin-top: 10px;  border-bottom: 1px solid white; text-align: center;" class="abc">Semester02 </p>
+                            <?php
+                                $y = 1;
+                            }
+                            ?>
 
-                                        <li>{{ $semi1module->mname }}</li>
-                                        </div>
-                                    <?php
-                                }
+                            <li>{{ $semi1module->mname }}</li>
+                        <?php
+                        }
 
 
-                                    ?>
+                        ?>
 
-                                    @endforeach
+                        @endforeach
                     </ul>
+
+
+
 
                 </div>
 
-
-
             </div>
-
         </div>
     </div>
-</div>
 </div>
 
 <div class="footer" style="margin-top: 5%">
