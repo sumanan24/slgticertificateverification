@@ -218,7 +218,7 @@
             </div>
         </div>
         <div class="row" style="padding-bottom: 12px;">
-            <div class="col-md-12  bg-transparent text-primary text-center" style="border-top: 1px solid rgba(255, 255, 255,0.5); border-bottom: 1px solid rgba(255, 255, 255,0.5); padding: 10px;">Copyright © 2022 . All rights reserved Department of Information and Communication Technology. </div>
+            <div class="col-md-12  bg-transparent text-primary text-center" style="border-top: 1px solid rgba(255, 255, 255,0.5); border-bottom: 1px solid rgba(255, 255, 255,0.5); padding: 10px;">Copyright © 2023 . All rights reserved Department of Information and Communication Technology. </div>
         </div>
     </div>
 </div>
