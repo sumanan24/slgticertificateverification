@@ -29,14 +29,11 @@ class resultcontroller extends Controller
         $semi1moudlue = student_course::join('modules','modules.c_code','=','student_courses.cid')
         ->join('students','students.reg_number','=','student_courses.sid')
         ->select('modules.name as mname','modules.semi as semi')
-        ->where("sid", "=", $id)->orwhere("students.nic", "=", $id)->where("modules.semi", "=", "Semester01")->get();
+        ->where("sid", "=", $id)->orwhere("students.nic", "=", $id)->get();
 
-        $semi2moudlue = student_course::join('modules','modules.c_code','=','student_courses.cid')
-        ->join('students','students.reg_number','=','student_courses.sid')
-        ->select('modules.name as mname','modules.semi as semi')
-        ->where("sid", "=", $id)->orwhere("students.nic", "=", $id)->where("modules.semi", "=", "Semester01")->get();
+      
 
-        return view('result', ['students' => $student, 'results' => $result,'semi1modules'=>$semi1moudlue,'semi2modules'=>$semi2moudlue]);
+        return view('result', ['students' => $student, 'results' => $result,'semi1modules'=>$semi1moudlue]);
        }
        else{
         return redirect()->back()->with('message', "Please Check your NIC number / Registration Number");
