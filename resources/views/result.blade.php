@@ -111,10 +111,12 @@
                         $y = 0;
                         $z = 0;
                         ?>
-                       
+                       <div class="row">
+                        <div class="col-md-6">
 
 
-                       
+                        </div>
+                       </div>
                         
                         @foreach ($semi1modules as $semi1module)
                         <?php
