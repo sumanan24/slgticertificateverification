@@ -18,7 +18,7 @@ class StudentCourses extends Migration
             $table->id();
             $table->String('sid');
             $table->String('cid');
-            $table->foreign('cid')->references('code')->on('courses');
+            // $table->foreign('cid')->references('code')->on('courses');
             $table->integer('certificate_no');
             $table->integer('batch');
             $table->date('start_date');
@@ -26,7 +26,7 @@ class StudentCourses extends Migration
             $table->timestamps();
         });
 
-        DB::unprepared('ALTER TABLE `student_courses` DROP PRIMARY KEY, ADD PRIMARY KEY (  `sid` , `cid` )');
+        // DB::unprepared('ALTER TABLE `student_courses` DROP PRIMARY KEY, ADD PRIMARY KEY (  `sid` , `cid` )');
     }
 
     /**
