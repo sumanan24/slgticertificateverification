@@ -10,11 +10,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="photos/logo.png" width="60%"class="d-inline-block align-top" alt="">
-        </a>
-    </nav>
+
 
     <div class="card bg-dark text-white">
         <img src="photos/canteen.jpg" width="100%"class="d-inline-block align-top" alt="">
@@ -25,7 +21,7 @@
                 <center>Jeya Sara Cafe</center>
             </h1>
             <h4 class="mb-4">
-                <center>SLGTI - Canteen</center>
+                <center>SLGTI - Cafeteria</center>
             </h4>
 
             <h3 class="mb-4">
@@ -33,100 +29,91 @@
             </h3>
         </div>
     </div>
-
+    @csrf
 
     <div class="container mt-4">
         <h4 class="mb-4">Break Fast</h4>
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Dosai 03</h5>
-                    <p class="card-text">Price: Rs 115. </p>
+
+        @foreach ($breakfasts as $breakfast)
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $breakfast->food }}</h5>
+                        <p class="card-text">Price: Rs- {{ $breakfast->price }} </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">String Hoppers - 10</h5>
-                    <p class="card-text">Price: Rs 130.</p>
-                </div>
-            </div>
-        </div>
+            <br>
+        @endforeach
+
 
 
         <hr style="background-color: black;">
         <h4 class="mb-4">Lunch</h4>
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Vegtable Rice</h5>
-                    <p class="card-text">Price: Rs 140.</p>
+        @foreach ($lunchs as $lunch)
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $lunch->food }}</h5>
+                        <p class="card-text">Price: Rs- {{ $lunch->price }} </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Egg Rice</h5>
-                    <p class="card-text">Price: Rs 170.</p>
-                </div>
-            </div>
-        </div>
+            <br>
+        @endforeach
 
 
         <hr style="background-color: black;">
         <h4 class="mb-4">Dinner</h4>
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Egg Koththu</h5>
-                    <p class="card-text">Price: Rs 220.</p>
+        @foreach ($dinners as $dinner)
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $dinner->food }}</h5>
+                        <p class="card-text">Price: Rs- {{ $dinner->price }} </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Vegetable Koththu</h5>
-                    <p class="card-text">Price: Rs. 170</p>
-                </div>
-            </div>
-        </div>
+            <br>
+        @endforeach
 
 
         <hr style="background-color: black;">
         <h4 class="mb-4">Drinks</h4>
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Papaya</h5>
-                    <p class="card-text">Price: Rs 80.</p>
+        @foreach ($drinks as $drink)
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $drink->food }}</h5>
+                        <p class="card-text">Price: Rs- {{ $drink->price }} </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Orange</h5>
-                    <p class="card-text">Price: Rs 80.</p>
+            <br>
+        @endforeach
+
+        <hr style="background-color: black;">
+        <h4 class="mb-4">Shorteats</h4>
+        @foreach ($shorteats as $shorteat)
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $shorteat->food }}</h5>
+                        <p class="card-text">Price: Rs- {{ $shorteat->price }} </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
+            <br>
+        @endforeach
+
         <div class="card  mb-3">
             <div class="card-footer bg-transparent ">
                 <center>
-                    <p>Maintaining a clean canteen is not just a duty. it's a commitment to providing a healthy and
-                        inviting space for everyone to enjoy</p>
+                    <p>Thanks for your cooperation <br>Maintaining a clean cafeteria is not just a duty. It's a commitment to a healthy and inviting space for all.</p>
                 </center>
             </div>
         </div>
-       
+
         <div class="card  mb-3">
             <div class="card-footer bg-transparent ">
                 <center>

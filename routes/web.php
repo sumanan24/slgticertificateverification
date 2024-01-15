@@ -23,8 +23,8 @@ Route::get('/', 'welcomecontroller@index');
 Route::get('department', 'departmentcontroller@index');
 Route::get('food', 'foodcontroller@index');
 Route::get('foodmenu', 'foodmenucontroller@index');
-Route::get('publicmenu', 'foodmenucontroller@menu');
-
+Route::get('publicmenu', 'foodmenucontroller@pmenu');
+Route::get('createfoodMenu', 'foodmenucontroller@foodmenu');
 Route::POST('departmentcreate', 'departmentcontroller@store');
 Route::POST('foodcreate', 'foodcontroller@store');
 Route::POST('foodmenucreate', 'foodmenucontroller@store');

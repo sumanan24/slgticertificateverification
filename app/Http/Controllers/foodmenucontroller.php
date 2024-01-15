@@ -12,16 +12,29 @@ class foodmenucontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function foodmenu()
     {
         $Foods = DB::select('SELECT * FROM foods');
         return view('foodmenu.create', compact('Foods'));
     }
-
-    public function menu()
+    public function index()
     {
-        return view('foodmenu');
+        $Foodmenus = DB::select('SELECT foods.name as food,foodmenus.type as type ,foodmenus.id as id, foodmenus.date as date FROM `foodmenus`,foods WHERE foods.id=foodmenus.food ORDER BY foodmenus.date DESC;');
+        return view('foodmenu.view', compact('Foodmenus'));
     }
+
+    public function pmenu()
+    {
+        $date=now()->toDateString();
+        $breakfasts = DB::select("SELECT foods.name as food,foods.price as price FROM `foodmenus`,foods WHERE foods.id=foodmenus.food and foodmenus.date='$date' and foodmenus.type='breakfast'"); 
+        $lunchs = DB::select("SELECT foods.name as food,foods.price as price FROM `foodmenus`,foods WHERE foods.id=foodmenus.food and foodmenus.date='$date' and foodmenus.type='lunch'"); 
+        $dinners = DB::select("SELECT foods.name as food,foods.price as price FROM `foodmenus`,foods WHERE foods.id=foodmenus.food and foodmenus.date='$date' and foodmenus.type='dinner'"); 
+        $shorteats = DB::select("SELECT foods.name as food,foods.price as price FROM `foodmenus`,foods WHERE foods.id=foodmenus.food and foodmenus.date='$date' and foodmenus.type='shorteats'"); 
+        $drinks = DB::select("SELECT foods.name as food,foods.price as price FROM `foodmenus`,foods WHERE foods.id=foodmenus.food and foodmenus.date='$date' and foodmenus.type='drinks'"); 
+        return view('foodmenu', compact('breakfasts','lunchs','dinners','shorteats','drinks'));
+    }
+    
+    
 
     /**
      * Show the form for creating a new resource.
@@ -62,7 +75,6 @@ class foodmenucontroller extends Controller
         // $Foods = DB::select('SELECT * FROM foods');
         // return view('food.view', compact('Foods'))->with('message', "insert success");
         return redirect()->back()->with('message', "insert success");
-
     }
 
     /**
