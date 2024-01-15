@@ -14,7 +14,11 @@ class foodcontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
+    public function __construct()
+    {
+        $this->middleware('role:user');
+    }
+    
     public function food()
     {
         return view('food.create');

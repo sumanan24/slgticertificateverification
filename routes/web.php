@@ -32,6 +32,7 @@ Route::get('createdep', 'departmentcontroller@department');
 Route::get('createfood', 'foodcontroller@food');
 Route::get('dept_delete{id}', 'departmentcontroller@destroy');
 Route::get('food_delete{id}', 'foodcontroller@destroy');
+Route::get('foodmenudelete{id}', 'foodmenucontroller@destroy');
 Route::get('dept_edit{id}', 'departmentcontroller@edit');
 Route::get('food_edit{id}', 'foodcontroller@edit');
 Route::POST('update/{id}','departmentcontroller@update');

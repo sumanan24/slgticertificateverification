@@ -12,6 +12,11 @@ class foodmenucontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+    {
+        $this->middleware('role:user');
+    }
     public function foodmenu()
     {
         $Foods = DB::select('SELECT * FROM foods');
@@ -119,6 +124,8 @@ class foodmenucontroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::delete("DELETE FROM foodmenus WHERE id = $id");
+        $Foodmenus = DB::select('SELECT foods.name as food,foodmenus.type as type ,foodmenus.id as id, foodmenus.date as date FROM `foodmenus`,foods WHERE foods.id=foodmenus.food ORDER BY foodmenus.date DESC;');
+        return view('foodmenu.view', compact('Foodmenus'))->with('message', "Delete success");
     }
 }
