@@ -13,10 +13,7 @@ class foodmenucontroller extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function __construct()
-    {
-        $this->middleware('role:user');
-    }
+    
     public function foodmenu()
     {
         $Foods = DB::select('SELECT * FROM foods');
